@@ -547,3 +547,27 @@ The saved metrics currently show:
 - PR-AUC: 0.6218
 
 For a final report, emphasize that recall and PR-AUC matter more than accuracy because failures are usually much rarer than successful jobs.
+
+## Deploy on Render
+
+This repository includes `render.yaml` for deploying the Streamlit dashboard as
+a Render Web Service.
+
+Before pushing to GitHub, move `not_useful/` outside the repository. It contains
+raw datasets, generated reports, report documents, cache files, and other local
+artifacts that are not needed for deployment.
+
+Recommended Render settings:
+
+```text
+Service type: Web Service
+Runtime: Python
+Build command: pip install -r requirements.txt
+Start command: streamlit run dashboard_app.py --server.address 0.0.0.0 --server.port $PORT --server.headless true
+Python version: 3.12.10
+```
+
+The deployed service runs the dashboard and uses the trained model files already
+stored in `models/`. The large raw training datasets are intentionally excluded
+from deployment. Airflow is kept as orchestration evidence in `dags/`, but it is
+not started as part of the Render Streamlit service.
