@@ -1,0 +1,31 @@
+# Local cleanup bucket. Move this folder outside the repo before pushing.
+not_useful/
+
+# Python/runtime caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Local logs and generated runtime files
+*.log
+streamlit-start*.log
+simulated/*.log
+
+# Large raw datasets and local installers
+*.zip
+*.exe
+data/HDFS.log
+data/anomaly_label.csv
+
+# Generated monitoring reports and run outputs
+outputs/attached_pipeline_monitoring_report_*
+outputs/etl_pipeline_monitoring_report_*
+outputs/plugin_session_report_*
+outputs/dashboard_session_report_*
+outputs/demo_predictions.json
+outputs/*_orders.csv
+
+# Local documents/report drafts
+ch3-5/

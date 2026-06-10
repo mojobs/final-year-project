@@ -1,0 +1,18 @@
+{
+  "accuracy": 0.925,
+  "precision": 0.8421,
+  "recall": 1.0,
+  "f1": 0.9143,
+  "roc_auc": 0.9883,
+  "pr_auc": 0.9704,
+  "mcc": 0.8584,
+  "specificity": 0.875,
+  "log_loss": 0.1222,
+  "inference_ms": 0.7135,
+  "cv_f1_mean": 0.9292,
+  "cv_f1_std": 0.0504,
+  "tp": 16,
+  "tn": 21,
+  "fp": 3,
+  "fn": 0
+}
