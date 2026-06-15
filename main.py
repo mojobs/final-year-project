@@ -1,7 +1,7 @@
 """
 main.py
 -------
-CLI entry point for the Pipeline Failure Prediction Plugin.
+CLI entry point for PipePulse Sentinel.
 
 Commands
 --------
@@ -287,7 +287,7 @@ def cmd_attach(args):
 def main():
     _configure_stdout()
     parser = argparse.ArgumentParser(
-        description="Pipeline Failure Prediction Plugin - XGBoost",
+        description="PipePulse Sentinel - XGBoost pipeline failure monitor",
         formatter_class=argparse.RawTextHelpFormatter,
         epilog="""
 Examples:

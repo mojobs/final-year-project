@@ -9,6 +9,7 @@ import pandas as pd
 import streamlit as st
 
 from config import ETL_MODEL_SAVE_PATH, OUTPUTS_DIR
+from login_service import LoginService
 from simulation_engine import (
     PIPELINE_STAGES,
     SimulationSession,
@@ -18,8 +19,15 @@ from etl_pipeline_demo import ETL_SCENARIOS, run_monitored_etl
 from live_pipeline_runner import DEFAULT_COMMAND, LiveAttachSession
 
 
+APP_NAME = "PipePulse Sentinel"
+APP_SUBTITLE = "Early-warning failure intelligence for live data pipelines."
+AUTHENTICATED_USER_KEY = "authenticated_user"
+LOGIN_ERROR_KEY = "login_error"
+LOGIN_SERVICE = LoginService()
+
+
 st.set_page_config(
-    page_title="Pipeline Failure Predictor",
+    page_title=APP_NAME,
     page_icon=None,
     layout="wide",
     initial_sidebar_state="expanded",
@@ -66,6 +74,19 @@ def inject_styles() -> None:
             color: var(--muted);
             font-size: .95rem;
             margin: 0 0 1.1rem 0;
+        }
+        .login-title {
+            font-size: 1.75rem;
+            font-weight: 760;
+            color: var(--ink);
+            margin: 1.5rem 0 .2rem 0;
+            text-align: center;
+        }
+        .login-subtitle {
+            color: var(--muted);
+            font-size: .95rem;
+            margin: 0 0 1.15rem 0;
+            text-align: center;
         }
         .stage-grid {
             display: grid;
@@ -165,6 +186,61 @@ def rerun_app() -> None:
         rerun()
 
 
+def get_authenticated_user() -> str | None:
+    return st.session_state.get(AUTHENTICATED_USER_KEY)
+
+
+def logout_current_user() -> None:
+    attached_session = get_attached_session()
+    if attached_session and attached_session.is_running():
+        attached_session.stop()
+    st.session_state.pop(AUTHENTICATED_USER_KEY, None)
+    st.session_state.pop(LOGIN_ERROR_KEY, None)
+
+
+def render_login() -> bool:
+    if get_authenticated_user():
+        return True
+
+    _left, login_col, _right = st.columns([1, 1.1, 1])
+    with login_col:
+        st.markdown(
+            f'<div class="login-title">{html.escape(APP_NAME)}</div>',
+            unsafe_allow_html=True,
+        )
+        st.markdown(
+            f'<div class="login-subtitle">{html.escape(APP_SUBTITLE)}</div>',
+            unsafe_allow_html=True,
+        )
+        with st.form("login_form", clear_on_submit=False):
+            username = st.text_input("Username")
+            password = st.text_input("Password", type="password")
+            submitted = st.form_submit_button(
+                "Log in",
+                type="primary",
+                use_container_width=True,
+            )
+
+        if submitted:
+            result = LOGIN_SERVICE.authenticate(username, password)
+            if result.authenticated:
+                st.session_state[AUTHENTICATED_USER_KEY] = result.username
+                st.session_state.pop(LOGIN_ERROR_KEY, None)
+                rerun_app()
+                return True
+            st.session_state[LOGIN_ERROR_KEY] = result.message
+
+        if st.session_state.get(LOGIN_ERROR_KEY):
+            st.error(st.session_state[LOGIN_ERROR_KEY])
+        if LOGIN_SERVICE.uses_default_credentials:
+            st.caption(
+                "Demo login: `admin` / `pipepulse-demo`. Set "
+                "`PIPEPULSE_USERNAME` and `PIPEPULSE_PASSWORD` to change it."
+            )
+
+    return False
+
+
 def risk_pill(risk: str) -> str:
     color = RISK_COLORS.get(risk, "#5d6978")
     return (
@@ -254,14 +330,23 @@ def start_selected_demo() -> None:
 
 
 def render_header() -> None:
-    st.markdown('<div class="app-title">Pipeline Failure Predictor</div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="app-title">{html.escape(APP_NAME)}</div>', unsafe_allow_html=True)
     st.markdown(
-        '<div class="app-subtitle">Visual demo for the predictor plugin, ETL integration, reports, and orchestration handoff.</div>',
+        f'<div class="app-subtitle">{html.escape(APP_SUBTITLE)} Visual demo for the predictor plugin, ETL integration, reports, and orchestration handoff.</div>',
         unsafe_allow_html=True,
     )
 
 
 def render_sidebar() -> None:
+    user = get_authenticated_user()
+    if user:
+        st.sidebar.caption(APP_NAME)
+        st.sidebar.write(f"Signed in as `{user}`")
+        if st.sidebar.button("Log out", use_container_width=True):
+            logout_current_user()
+            rerun_app()
+        st.sidebar.markdown("---")
+
     st.sidebar.header("Run Control")
     st.sidebar.selectbox(
         "Demo type",
@@ -351,6 +436,7 @@ def render_sidebar() -> None:
 def render_system_map() -> None:
     data = pd.DataFrame(
         [
+            {"Layer": "LoginService", "Role": "Dashboard access control", "Status": "Active"},
             {"Layer": "Dashboard", "Role": "Visual simulation", "Status": "Active"},
             {"Layer": "LivePipelineRunner", "Role": "Attach plugin to a running command", "Status": "Ready"},
             {"Layer": "PredictorPlugin", "Role": "Reusable stop/advice API", "Status": "Connected"},
@@ -982,6 +1068,8 @@ def render_live_dashboard() -> None:
 
 def main() -> None:
     inject_styles()
+    if not render_login():
+        return
     render_sidebar()
     render_header()
     if st.session_state.get("demo_type") == "Attach live command":

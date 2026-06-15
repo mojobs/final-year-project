@@ -1,0 +1,5 @@
+﻿Intentional deviations:
+- Student template source slides are duplicated and filled with updated project content.
+- Additional content slides are created by reusing the Methodology, Literature Review, Significance, Conclusion, References, and Thank You patterns to cover the revised proposal/report.
+- Feature-importance and model-comparison proof images are inserted where the template had only text placeholders, because the user requested charts/figures where relevant.
+- Dense slides are split across multiple template slides to keep all text at 12 pt or larger.

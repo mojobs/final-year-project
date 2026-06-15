@@ -1,4 +1,6 @@
-# Log-Based Failure Prediction for Data Pipelines
+# PipePulse Sentinel
+
+Log-based failure prediction for data pipelines.
 
 This project is a predictive monitoring plugin for batch data pipelines. It reads logs while a job is running, extracts numerical warning signals, and uses an XGBoost classifier to estimate whether the job is likely to fail before the final crash or failure line appears.
 
@@ -288,6 +290,25 @@ auto-stops on HIGH risk, and generates final JSON/HTML reports.
 python -m streamlit run dashboard_app.py
 ```
 
+The dashboard includes a simple login screen before any monitoring controls are
+shown. For local demos, the default credentials are:
+
+```text
+Username: admin
+Password: pipepulse-demo
+```
+
+Override them with environment variables before starting Streamlit:
+
+```powershell
+$env:PIPEPULSE_USERNAME = "operator"
+$env:PIPEPULSE_PASSWORD = "change-this-password"
+python -m streamlit run dashboard_app.py
+```
+
+For deployment, you can also set `PIPEPULSE_PASSWORD_HASH` to a SHA-256 hash of
+the password instead of storing the password value directly.
+
 Dashboard controls:
 
 - `Demo type`: attach live command, monitored ETL pipeline, or visual simulator.
@@ -561,6 +582,7 @@ Recommended Render settings:
 
 ```text
 Service type: Web Service
+Service name: pipepulse-sentinel
 Runtime: Python
 Build command: pip install -r requirements.txt
 Start command: streamlit run dashboard_app.py --server.address 0.0.0.0 --server.port $PORT --server.headless true
@@ -571,3 +593,7 @@ The deployed service runs the dashboard and uses the trained model files already
 stored in `models/`. The large raw training datasets are intentionally excluded
 from deployment. Airflow is kept as orchestration evidence in `dags/`, but it is
 not started as part of the Render Streamlit service.
+
+Set `PIPEPULSE_USERNAME` and `PIPEPULSE_PASSWORD` or `PIPEPULSE_PASSWORD_HASH`
+in Render environment variables so the deployed dashboard does not use the demo
+login.

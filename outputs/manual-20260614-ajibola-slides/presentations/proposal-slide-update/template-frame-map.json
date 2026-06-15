@@ -1,0 +1,256 @@
+﻿{
+    "outputSlides":  [
+                         {
+                             "outputSlide":  1,
+                             "sourceSlide":  1,
+                             "narrativeRole":  "Log Analysis and Failure Prediction for Data Pipeline Batch Jobs Using XGBoost Algorithm",
+                             "reuseMode":  "duplicate-slide",
+                             "editTargets":  [
+                                                 "Title placeholder",
+                                                 "Content/subtitle placeholder",
+                                                 "Slide number placeholder"
+                                             ]
+                         },
+                         {
+                             "outputSlide":  2,
+                             "sourceSlide":  2,
+                             "narrativeRole":  "Presentation Outline",
+                             "reuseMode":  "duplicate-slide",
+                             "editTargets":  [
+                                                 "Title placeholder",
+                                                 "Content/subtitle placeholder",
+                                                 "Slide number placeholder"
+                                             ]
+                         },
+                         {
+                             "outputSlide":  3,
+                             "sourceSlide":  4,
+                             "narrativeRole":  "Background",
+                             "reuseMode":  "duplicate-slide",
+                             "editTargets":  [
+                                                 "Title placeholder",
+                                                 "Content/subtitle placeholder",
+                                                 "Slide number placeholder"
+                                             ]
+                         },
+                         {
+                             "outputSlide":  4,
+                             "sourceSlide":  5,
+                             "narrativeRole":  "Statement of the Problem",
+                             "reuseMode":  "duplicate-slide",
+                             "editTargets":  [
+                                                 "Title placeholder",
+                                                 "Content/subtitle placeholder",
+                                                 "Slide number placeholder"
+                                             ]
+                         },
+                         {
+                             "outputSlide":  5,
+                             "sourceSlide":  7,
+                             "narrativeRole":  "Aim and Objectives",
+                             "reuseMode":  "duplicate-slide",
+                             "editTargets":  [
+                                                 "Title placeholder",
+                                                 "Content/subtitle placeholder",
+                                                 "Slide number placeholder"
+                                             ]
+                         },
+                         {
+                             "outputSlide":  6,
+                             "sourceSlide":  9,
+                             "narrativeRole":  "Literature Gap",
+                             "reuseMode":  "duplicate-slide",
+                             "editTargets":  [
+                                                 "Title placeholder",
+                                                 "Content/subtitle placeholder",
+                                                 "Slide number placeholder"
+                                             ]
+                         },
+                         {
+                             "outputSlide":  7,
+                             "sourceSlide":  8,
+                             "narrativeRole":  "Methodological Alignment",
+                             "reuseMode":  "duplicate-slide",
+                             "editTargets":  [
+                                                 "Title placeholder",
+                                                 "Content/subtitle placeholder",
+                                                 "Slide number placeholder"
+                                             ]
+                         },
+                         {
+                             "outputSlide":  8,
+                             "sourceSlide":  8,
+                             "narrativeRole":  "Data Sources and Sampling",
+                             "reuseMode":  "duplicate-slide",
+                             "editTargets":  [
+                                                 "Title placeholder",
+                                                 "Content/subtitle placeholder",
+                                                 "Slide number placeholder"
+                                             ]
+                         },
+                         {
+                             "outputSlide":  9,
+                             "sourceSlide":  8,
+                             "narrativeRole":  "Feature Engineering",
+                             "reuseMode":  "duplicate-slide",
+                             "editTargets":  [
+                                                 "Title placeholder",
+                                                 "Content/subtitle placeholder",
+                                                 "Slide number placeholder"
+                                             ]
+                         },
+                         {
+                             "outputSlide":  10,
+                             "sourceSlide":  8,
+                             "narrativeRole":  "Model Development and Validation",
+                             "reuseMode":  "duplicate-slide",
+                             "editTargets":  [
+                                                 "Title placeholder",
+                                                 "Content/subtitle placeholder",
+                                                 "Slide number placeholder"
+                                             ]
+                         },
+                         {
+                             "outputSlide":  11,
+                             "sourceSlide":  8,
+                             "narrativeRole":  "System Architecture",
+                             "reuseMode":  "duplicate-slide",
+                             "editTargets":  [
+                                                 "Title placeholder",
+                                                 "Content/subtitle placeholder",
+                                                 "Slide number placeholder"
+                                             ]
+                         },
+                         {
+                             "outputSlide":  12,
+                             "sourceSlide":  8,
+                             "narrativeRole":  "Risk Classification and Intervention",
+                             "reuseMode":  "duplicate-slide",
+                             "editTargets":  [
+                                                 "Title placeholder",
+                                                 "Content/subtitle placeholder",
+                                                 "Slide number placeholder"
+                                             ]
+                         },
+                         {
+                             "outputSlide":  13,
+                             "sourceSlide":  8,
+                             "narrativeRole":  "Feature-Importance Findings",
+                             "reuseMode":  "duplicate-slide",
+                             "editTargets":  [
+                                                 "Title placeholder",
+                                                 "Content/subtitle placeholder",
+                                                 "Slide number placeholder"
+                                             ]
+                         },
+                         {
+                             "outputSlide":  14,
+                             "sourceSlide":  8,
+                             "narrativeRole":  "Model Evaluation Results",
+                             "reuseMode":  "duplicate-slide",
+                             "editTargets":  [
+                                                 "Title placeholder",
+                                                 "Content/subtitle placeholder",
+                                                 "Slide number placeholder"
+                                             ]
+                         },
+                         {
+                             "outputSlide":  15,
+                             "sourceSlide":  8,
+                             "narrativeRole":  "Model Comparison",
+                             "reuseMode":  "duplicate-slide",
+                             "editTargets":  [
+                                                 "Title placeholder",
+                                                 "Content/subtitle placeholder",
+                                                 "Slide number placeholder"
+                                             ]
+                         },
+                         {
+                             "outputSlide":  16,
+                             "sourceSlide":  8,
+                             "narrativeRole":  "Dashboard and Output Evidence",
+                             "reuseMode":  "duplicate-slide",
+                             "editTargets":  [
+                                                 "Title placeholder",
+                                                 "Content/subtitle placeholder",
+                                                 "Slide number placeholder"
+                                             ]
+                         },
+                         {
+                             "outputSlide":  17,
+                             "sourceSlide":  10,
+                             "narrativeRole":  "Discussion of Findings",
+                             "reuseMode":  "duplicate-slide",
+                             "editTargets":  [
+                                                 "Title placeholder",
+                                                 "Content/subtitle placeholder",
+                                                 "Slide number placeholder"
+                                             ]
+                         },
+                         {
+                             "outputSlide":  18,
+                             "sourceSlide":  10,
+                             "narrativeRole":  "Limitations",
+                             "reuseMode":  "duplicate-slide",
+                             "editTargets":  [
+                                                 "Title placeholder",
+                                                 "Content/subtitle placeholder",
+                                                 "Slide number placeholder"
+                                             ]
+                         },
+                         {
+                             "outputSlide":  19,
+                             "sourceSlide":  10,
+                             "narrativeRole":  "Recommendations and Future Work",
+                             "reuseMode":  "duplicate-slide",
+                             "editTargets":  [
+                                                 "Title placeholder",
+                                                 "Content/subtitle placeholder",
+                                                 "Slide number placeholder"
+                                             ]
+                         },
+                         {
+                             "outputSlide":  20,
+                             "sourceSlide":  10,
+                             "narrativeRole":  "Final Conclusion",
+                             "reuseMode":  "duplicate-slide",
+                             "editTargets":  [
+                                                 "Title placeholder",
+                                                 "Content/subtitle placeholder",
+                                                 "Slide number placeholder"
+                                             ]
+                         },
+                         {
+                             "outputSlide":  21,
+                             "sourceSlide":  12,
+                             "narrativeRole":  "References",
+                             "reuseMode":  "duplicate-slide",
+                             "editTargets":  [
+                                                 "Title placeholder",
+                                                 "Content/subtitle placeholder",
+                                                 "Slide number placeholder"
+                                             ]
+                         },
+                         {
+                             "outputSlide":  22,
+                             "sourceSlide":  14,
+                             "narrativeRole":  "Thank You for Listening",
+                             "reuseMode":  "duplicate-slide",
+                             "editTargets":  [
+                                                 "Title placeholder",
+                                                 "Content/subtitle placeholder",
+                                                 "Slide number placeholder"
+                                             ]
+                         }
+                     ],
+    "omittedSourceSlides":  [
+                                {
+                                    "reason":  "Optional scenario prompt not needed for final defence narrative.",
+                                    "sourceSlide":  3
+                                },
+                                {
+                                    "reason":  "Appreciation content is covered verbally; final deck ends with references and Q\u0026A.",
+                                    "sourceSlide":  13
+                                }
+                            ]
+}

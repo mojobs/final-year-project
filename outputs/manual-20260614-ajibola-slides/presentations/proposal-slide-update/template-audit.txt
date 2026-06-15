@@ -1,0 +1,8 @@
+﻿Task mode: template-following
+Primary profile: template-following
+Secondary gate: engineering-platform academic defence
+Template source: Project Student Slide Template.pptx
+Content source: Final YEAR PROPOSAL Revised.docx and existing custom presentation
+Required proof objects: five objectives, method/data/model validation, feature importance, model evaluation, dashboard/report evidence, limitations, recommendations, final conclusion.
+Font gate: all authored slide text is set to 12 pt or larger.
+Known environment note: packaged artifact inspector expected Unix unzip on Windows; PowerPoint COM was used for template duplication, authoring, repagination, and export.
